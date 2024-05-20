@@ -46,6 +46,7 @@ export async function getBinding(cred: string, token: string) {
  * 登岛检票
  * @param cred 鹰角网络通行证账号的登录凭证
  * @param token 森空岛用户的 token
+ * @param id 森空岛版面id
  */
 export async function checkIn(cred: string, token: string, id: SklandBoard) {
   const url = new URL(SKLAND_CHECKIN_URL)
@@ -63,6 +64,7 @@ export async function checkIn(cred: string, token: string, id: SklandBoard) {
  * 明日方舟每日签到
  * @param cred 鹰角网络通行证账号的登录凭证
  * @param token 森空岛用户的 token
+ * @param body 请求body
  */
 export async function attendance(cred: string, token: string, body: { uid: string, gameId: string }) {
   const url = new URL(SKLAND_ATTENDANCE_URL)

@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { getPrivacyName } from './utils'
 import { SKLAND_BOARD_IDS, SKLAND_BOARD_NAME_MAPPING } from './constant'
 import { attendance, auth, checkIn, getBinding, signIn } from './api'
@@ -50,7 +51,7 @@ export async function doAttendanceForAccount(token: string, options: Options) {
     return [logger, push, add] as const
   }
 
-  const [combineMessage, excutePushMessage, addMessage] = createCombinePushMessage()
+  const [combineMessage, executePushMessage, addMessage] = createCombinePushMessage()
 
   addMessage(`# 森空岛每日签到 \n\n> ${new Intl.DateTimeFormat('zh-CN', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Asia/Shanghai' }).format(new Date())}`)
   addMessage('## 森空岛各版面每日检票')
@@ -86,5 +87,5 @@ export async function doAttendanceForAccount(token: string, options: Options) {
     }
   }))
   combineMessage(`成功签到${successAttendance}个角色`)
-  await excutePushMessage()
+  await executePushMessage()
 }

@@ -1,5 +1,5 @@
-export async function serverChan(sendkey: string, title: string, content: string): Promise<number> {
-  if (typeof sendkey !== 'string') {
+export async function serverChan(sendKey: string, title: string, content: string): Promise<number> {
+  if (typeof sendKey !== 'string') {
     console.error('Wrong type for serverChan token.')
     return -1
     // throw new Error("Wrong type for serverChan token.");
@@ -9,9 +9,9 @@ export async function serverChan(sendkey: string, title: string, content: string
     desp: content,
   }
   try {
-    // const resp = await axios.post(`https://sctapi.ftqq.com/${sendkey}.send`, payload);
+    // const resp = await axios.post(`https://sctapi.ftqq.com/${sendKey}.send`, payload);
     const resp = await fetch(
-      `https://sctapi.ftqq.com/${sendkey}.send`,
+      `https://sctapi.ftqq.com/${sendKey}.send`,
       {
         method: 'POST',
         headers: {
